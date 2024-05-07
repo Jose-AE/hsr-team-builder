@@ -1,11 +1,11 @@
-import { getCharacters } from "./utils/getCharacters";
 import { getTeams } from "./utils/getTeams";
 import util from "util";
+import fs from "fs";
 
 async function main() {
   const teams = await getTeams();
-  //console.log(util.inspect(teams, true, null, true));
-  console.log("-------done----------");
+
+  fs.writeFileSync("./scraper/output/teams.json", JSON.stringify({ teams }));
 }
 
 main();

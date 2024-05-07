@@ -6,6 +6,7 @@ import { CharacterData, getCharacters } from "./getCharacters";
 const { JSDOM } = jsdom;
 
 interface TeamData {
+  primaryCharacter: CharacterData;
   characters: CharacterData[];
 }
 
@@ -34,11 +35,20 @@ function getCharactersInTeamDiv(
   chars: CharacterData[]
 ): CharacterData[] {
   const charNameTags = element.querySelectorAll(`p span em strong`);
-
   const charactersData: CharacterData[] = [];
 
   for (let i = 0; i < charNameTags.length; i++) {
-    if (i % 2 == 1) continue;
+    const tagText = charNameTags[i].textContent;
+
+    if (
+      tagText?.includes("Healer") ||
+      tagText?.includes("DPS") ||
+      tagText?.includes("Support") ||
+      tagText?.includes("Tank") ||
+      tagText?.includes("Shield")
+    )
+      continue;
+    //if (i % 2 == 1) continue;
 
     const charToAdd = chars.find((chr) => {
       //console.log(`${chr.name} === ${charNameTags[i].textContent}`);
@@ -47,7 +57,7 @@ function getCharactersInTeamDiv(
 
     if (charToAdd) charactersData.push(charToAdd);
     else {
-      console.log("------" + charNameTags[i].textContent);
+      //console.log("------" + charNameTags[i].textContent);
     }
   }
 
@@ -58,14 +68,23 @@ function getCharactersInTeamDiv(
 
 function generateTeamsDataFromDom(
   dom: jsdom.JSDOM,
-  chars: CharacterData[]
+  chars: CharacterData[],
+  mainChar: CharacterData
 ): TeamData[] {
   const teamDivs = getTeamDivs(dom);
   const teams: TeamData[] = [];
 
   for (let teamDiv of teamDivs) {
     const teamChars = getCharactersInTeamDiv(teamDiv, chars);
-    teams.push({ characters: teamChars });
+    if (teamChars.length === 4) {
+      teams.push({ characters: teamChars, primaryCharacter: mainChar });
+      console.log("\x1b[32m" + `Added ${mainChar.name} team`);
+    } else {
+      console.log(
+        "\x1b[31m" +
+          `Error adding ${mainChar.name} team, length of chars is not 4`
+      );
+    }
   }
 
   return teams;
@@ -82,10 +101,9 @@ export async function getTeams(): Promise<TeamData[]> {
       )
       .then((response) => {
         const dom = new JSDOM(response.data);
-        const charTeams = generateTeamsDataFromDom(dom, chars);
+        const charTeams = generateTeamsDataFromDom(dom, chars, char);
         teams.push(...charTeams);
-        console.log(`added teams for ${char.name_id}/${char.name}`);
-        console.log(util.inspect(charTeams, true, null, true));
+        //console.log(util.inspect(charTeams, true, null, true));
       })
       .catch(async (error) => {
         //console.log(`error getting teams for ${char.name_id}`);
@@ -98,19 +116,13 @@ export async function getTeams(): Promise<TeamData[]> {
           )
           .then((response) => {
             const dom = new JSDOM(response.data);
-            teams.push(...generateTeamsDataFromDom(dom, chars));
-            console.log(`added teams for ${char.name_id}`);
+            teams.push(...generateTeamsDataFromDom(dom, chars, char));
           })
           .catch((error) => {
-            //console.log(`error getting teams for ${char.name_id}`);
+            console.log(`Error getting teams for ${char.name_id}`);
           });
       });
   }
 
   return teams;
 }
-
-//dont want
-////elementor-element elementor-element-2776373 elementor-widget__width-initial elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box
-
-//want
