@@ -11,14 +11,11 @@ import {
   Image,
   Box,
   Grid,
-  GridItem,
-  SimpleGrid,
   FormControl,
   Input,
   Tooltip,
   InputLeftElement,
   InputGroup,
-  InputRightElement,
   IconButton,
 } from "@chakra-ui/react";
 import Character from "./components/Character";

@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, Image } from "@chakra-ui/react";
 import { ITeamData } from "../data/teams.data";
 
 function Character({ name_id }: { name_id: string }) {
@@ -18,7 +18,7 @@ function Character({ name_id }: { name_id: string }) {
   );
 }
 
-export default function Team({ characters, primaryCharacter }: ITeamData) {
+export default function Team({ characters }: ITeamData) {
   return (
     <Box
       boxShadow={"lg"}
