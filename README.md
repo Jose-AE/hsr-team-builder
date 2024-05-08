@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+<a name="readme-top"></a>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<br />
 
-Currently, two official plugins are available:
+<h3 align="center">Honkai Star Rail Team Builder</h3>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  <p align="center">
+    A Honkai Star Rail Team builder to find popular teams with the selected characters
+    <br />
+    <a href="https://github.com/Jose-AE/hsr-team-builder"></a>
+    <br />
+    <a href="https://github.com/Jose-AE/hsr-team-builder/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Jose-AE/hsr-team-builder/issues">Request Feature</a>
+  </p>
+</div>
 
-## Expanding the ESLint configuration
+<!-- ABOUT THE PROJECT -->
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## About The Project
 
-- Configure the top-level `parserOptions` property like this:
+<img src="https://i.imgur.com/ivVNrKr.png" />
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Built With
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/typescript_original_logo_icon_146317.png" alt="Typescript" width="40" height="40"/> </a>
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://cdn.icon-icons.com/icons2/2415/PNG/512/react_original_logo_icon_146374.png" alt="react" width="40" height="40"/> </a>
+<a href="https://chakra-ui.com/" target="_blank" rel="noreferrer"> <img src="https://img.icons8.com/color/512/chakra-ui.png" alt="chakra ui" width="40" height="40"/> </a>
+
+<!-- GETTING STARTED -->
+
+### Installation
+
+1. Go to project dir
+   ```sh
+   cd app
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run in dev mode
+   ```js
+   npm run dev
+   ```
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the GNU GENERAL PUBLIC License. See `LICENSE.txt` for more information.
+
+This project is not affiliated with HoYoVerse. Honkai Star Rail, game content and materials are trademarks and copyrights of HoYoVerse.
