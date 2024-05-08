@@ -1,44 +1,63 @@
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 import { FaGithub } from "react-icons/fa";
 import {
-  Button,
-  FormControl,
   Flex,
-  Input,
   Stack,
   Text,
   useColorModeValue,
-  Tooltip,
   Image,
   Box,
-  FormHelperText,
-  Checkbox,
-  Heading,
-  Card,
-  CardHeader,
-  CardBody,
-  Badge,
+  Grid,
+  GridItem,
+  SimpleGrid,
+  FormControl,
+  Input,
+  Tooltip,
+  InputLeftElement,
+  InputGroup,
+  InputRightElement,
+  IconButton,
 } from "@chakra-ui/react";
 import Character from "./components/Character";
+import CHARACTERS from "./data/characters.data";
+import Team from "./components/Team";
+import TEAMS, { ITeamData } from "./data/teams.data";
 
-const DEFAULT_NUM_SIMULATIONS = 100000;
+interface ICharacter {
+  selected: boolean;
+  name: string;
+  name_id: string;
+}
 
 function App() {
-  const [warps, setWarps] = useState(0);
-  const [characterPity, setCharacterPity] = useState(0);
-  const [conePity, setConePity] = useState(0);
-  const [coneGuaranteed, setConeGuaranteed] = useState(false);
-  const [characterGuaranteed, setCharacterGuaranteed] = useState(false);
-  const [characterCopies, setCharacterCopies] = useState(0);
-  const [coneCopies, setConeCopies] = useState(0);
-  const [numSimulations, setNumSimulations] = useState(DEFAULT_NUM_SIMULATIONS);
-
-  const [chance, setChance] = useState(-1);
-
-  const [loading, setLoading] = useState(false);
-
   localStorage.setItem("chakra-ui-color-mode", "dark"); //set dark mode
+
+  const [characterFilter, setCharacterFilter] = useState("");
+
+  const [characters, setCharacters] = useState<ICharacter[]>(
+    CHARACTERS.map((c) => {
+      return { name: c.name, name_id: c.name_id, selected: false };
+    })
+  );
+
+  function teamFilterFunction(team: ITeamData) {
+    let numMatchingChars = 0;
+
+    for (let teamChar of team.characters) {
+      for (let char of characters) {
+        if (char.selected) {
+          if (char.name_id === teamChar.name_id) {
+            numMatchingChars++;
+          }
+        }
+      }
+    }
+
+    return numMatchingChars === 4;
+  }
 
   return (
     <>
@@ -52,10 +71,7 @@ function App() {
         zIndex={9999}
         bgColor="rgba(0, 0, 0, 0.5)"
       >
-        <a
-          href="https://github.com/Jose-AE/hsr-warp-calculator"
-          target="_blank"
-        >
+        <a href="https://github.com/Jose-AE/hsr-team-builder" target="_blank">
           <FaGithub />
         </a>
       </Box>
@@ -69,7 +85,7 @@ function App() {
         <Stack
           spacing={4}
           w={"full"}
-          maxW={"md"}
+          maxW={"xl"}
           bg={useColorModeValue("white", "gray.700")}
           rounded={"xl"}
           boxShadow={"lg"}
@@ -77,11 +93,12 @@ function App() {
           my={12}
         >
           {/*---------------------------Character --------------------------------------*/}
+
           <Flex gap={5}>
-            <Box py={"5px"} borderWidth="1px" borderRadius={"md"} w={"100%"}>
+            <Box width={"50%"} py={"5px"} borderWidth="1px" borderRadius={"md"}>
               <Flex alignItems="center" justify={"center"}>
                 <Text userSelect={"none"} mr={"5px"}>
-                  Owned Characters
+                  Available Characters
                 </Text>
                 <Image
                   h={5}
@@ -91,39 +108,126 @@ function App() {
                 />
               </Flex>
             </Box>
+
+            <Flex gap={2} width={"50%"}>
+              <FormControl>
+                <InputGroup>
+                  <InputLeftElement pointerEvents="none">
+                    <FaSearch />
+                  </InputLeftElement>
+                  <Input
+                    onChange={(e) => {
+                      setCharacterFilter(e.target.value);
+                    }}
+                    autoComplete={"off"}
+                    type="search"
+                    placeholder=""
+                  />
+                </InputGroup>
+              </FormControl>
+
+              <Tooltip label="Clear selected characters">
+                <IconButton
+                  onClick={() => {
+                    setCharacters([
+                      ...characters.map((c) => {
+                        c.selected = false;
+                        return c;
+                      }),
+                    ]);
+                  }}
+                  aria-label="Clear"
+                  icon={<FaTimes />}
+                />
+              </Tooltip>
+            </Flex>
           </Flex>
 
-          <Box py={"5px"} borderWidth="1px" borderRadius={"md"} w={"100%"}>
-            <Character />
-          </Box>
-
-          {/*---------------------------Button --------------------------------------*/}
-
-          <Stack spacing={6}>
-            <Button
-              isDisabled={
-                !(
-                  warps > 0 &&
-                  characterPity >= 0 &&
-                  conePity >= 0 &&
-                  numSimulations > 0 &&
-                  (characterCopies > 0 || coneCopies > 0)
-                )
-              }
-              isLoading={loading}
-              bg={"blue.400"}
-              color={"white"}
-              _hover={{
-                bg: "blue.500",
+          <Flex p={"5px"} borderWidth="1px" borderRadius={"md"} w={"100%"}>
+            <Grid
+              overflowX={"hidden"}
+              overflowY={"auto"}
+              h={"400px"}
+              sx={{
+                "::-webkit-scrollbar": {
+                  display: "none",
+                },
               }}
-              onClick={() => {
-                //console.log(`warps: ${warps} Waanted coe${coneCopies}`);
-                setLoading(true);
-              }}
+              templateColumns="repeat(5, 1fr)"
+              templateRows="repeat(4, 1fr)"
+              gap={1}
             >
-              Calculate
-            </Button>
-          </Stack>
+              {characters
+                .filter((c) => {
+                  if (characterFilter.length === 0) return true;
+
+                  return c.name
+                    .toLowerCase()
+                    .includes(characterFilter.toLowerCase());
+                })
+                .map((char, i) => (
+                  <Character
+                    onClick={() => {
+                      setCharacters([
+                        ...characters.map((c) => {
+                          if (c.name_id == char.name_id) {
+                            c.selected = !c.selected;
+                            return c;
+                          } else {
+                            return c;
+                          }
+                        }),
+                      ]);
+                    }}
+                    key={i}
+                    name={char.name}
+                    name_id={char.name_id}
+                    selected={char.selected}
+                  />
+                ))}
+            </Grid>
+          </Flex>
+
+          {/*---------------------------Teams --------------------------------------*/}
+
+          <Flex gap={5}>
+            <Box py={"5px"} borderWidth="1px" borderRadius={"md"} w={"100%"}>
+              <Flex alignItems="center" justify={"center"}>
+                <Text userSelect={"none"} mr={"5px"}>
+                  Teams
+                </Text>
+              </Flex>
+            </Box>
+          </Flex>
+
+          <Flex
+            alignItems="center"
+            justify={"center"}
+            p={"5px"}
+            borderWidth="1px"
+            borderRadius={"md"}
+            w={"100%"}
+          >
+            {TEAMS.filter(teamFilterFunction).length > 0 ? (
+              <Grid
+                templateColumns="repeat(1, 1fr)"
+                templateRows="repeat(1, 1fr)"
+                gap={1}
+              >
+                {TEAMS.filter(teamFilterFunction).map((t, i) => (
+                  <Team
+                    key={i}
+                    characters={t.characters}
+                    primaryCharacter={t.primaryCharacter}
+                  />
+                ))}
+              </Grid>
+            ) : (
+              <Text color={"gray.500"} userSelect={"none"} mr={"5px"}>
+                No matching teams for selected characters
+              </Text>
+            )}
+          </Flex>
         </Stack>
       </Flex>
     </>

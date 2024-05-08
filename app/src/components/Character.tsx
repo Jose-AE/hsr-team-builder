@@ -1,26 +1,52 @@
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
 
-export default function Character() {
+export interface CharacterProps {
+  selected: boolean;
+  name: string;
+  name_id: string;
+  onClick: () => void;
+}
+
+export default function Character({
+  name,
+  name_id,
+  selected,
+  onClick,
+}: CharacterProps) {
   return (
     <Box
-      onClick={() => {}}
-      maxW="80px"
+      userSelect={"none"}
+      onClick={() => {
+        onClick();
+      }}
       borderRadius="5px"
-      bg="gray.700"
+      bg="gray.800"
       _hover={{ bg: "gray.600", cursor: "pointer" }}
     >
       <Image
-        src={new URL(`../assets/characters/1307.webp`, import.meta.url).href}
+        objectFit={"cover"}
+        height={"100px"}
+        width={"100px"}
+        pointerEvents={"none"}
+        opacity={selected ? 1 : 0.2}
+        src={
+          new URL(`../assets/characters/${name_id}.webp`, import.meta.url).href
+        }
       />
 
       <Flex
         borderBottomRadius="5px"
-        bg="whiteAlpha.200"
+        bg="whiteAlpha.300"
         justifyContent="center"
         alignItems="center"
+        h={"20px"}
       >
-        <Text as="b" textAlign="center" mr="3px">
-          {0}
+        <Text
+          as={"b"}
+          fontSize={`${Math.min(10, 8 * (20 / name.length))}px`}
+          textAlign="center"
+        >
+          {name}
         </Text>
       </Flex>
     </Box>
