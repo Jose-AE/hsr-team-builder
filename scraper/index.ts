@@ -9,14 +9,14 @@ async function main() {
 
   writeFileSync(
     resolve(__dirname, "./output/characters.json"),
-    JSON.stringify({ characters })
+    JSON.stringify(characters)
   );
 
   const teams = await getTeams(characters);
 
   writeFileSync(
     resolve(__dirname, "./output/teams.json"),
-    JSON.stringify({ teams })
+    JSON.stringify(teams)
   );
 }
 
