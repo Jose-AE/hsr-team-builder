@@ -1,4 +1,4 @@
-import React, { useCallback, type ChangeEvent, type FC } from "react";
+import { useCallback, type ChangeEvent, type FC } from "react";
 
 import {
   FormControl,

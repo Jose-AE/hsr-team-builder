@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 
 import { Box, Flex, Text, Image } from "@chakra-ui/react";
 
