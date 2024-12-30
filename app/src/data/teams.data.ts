@@ -1,11 +1,141 @@
-import { ICharacterData } from "./characters.data";
+import type { ITeamData } from "../types";
 
-export interface ITeamData {
-  primaryCharacter: ICharacterData;
-  characters: ICharacterData[];
-}
-
-const TEAMS: ITeamData[] = [
+export const TEAMS: ITeamData[] = [
+  {
+    characters: [
+      { name_id: "acheron", name: "Acheron" },
+      { name_id: "sparkle", name: "Sparkle" },
+      { name_id: "jiaoqiu", name: "Jiaoqiu" },
+      { name_id: "aventurine", name: "Aventurine" },
+    ],
+    primaryCharacter: { name_id: "jiaoqiu", name: "Jiaoqiu" },
+  },
+  {
+    characters: [
+      { name_id: "acheron", name: "Acheron" },
+      { name_id: "pela", name: "Pela" },
+      { name_id: "jiaoqiu", name: "Jiaoqiu" },
+      { name_id: "aventurine", name: "Aventurine" },
+    ],
+    primaryCharacter: { name_id: "jiaoqiu", name: "Jiaoqiu" },
+  },
+  {
+    characters: [
+      { name_id: "acheron", name: "Acheron" },
+      { name_id: "pela", name: "Pela" },
+      { name_id: "jiaoqiu", name: "Jiaoqiu" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: { name_id: "jiaoqiu", name: "Jiaoqiu" },
+  },
+  {
+    characters: [
+      { name_id: "kafka", name: "Kafka" },
+      { name_id: "black-swan", name: "Black Swan" },
+      { name_id: "jiaoqiu", name: "Jiaoqiu" },
+      { name_id: "huohuo", name: "Huohuo" },
+    ],
+    primaryCharacter: { name_id: "jiaoqiu", name: "Jiaoqiu" },
+  },
+  {
+    characters: [
+      { name_id: "jade", name: "Jade" },
+      { name_id: "herta", name: "Herta" },
+      { name_id: "robin", name: "Robin" },
+      { name_id: "huohuo", name: "Huohuo" },
+    ],
+    primaryCharacter: { name_id: "jade", name: "Jade" },
+  },
+  {
+    characters: [
+      { name_id: "blade", name: "Blade" },
+      { name_id: "jade", name: "Jade" },
+      { name_id: "robin", name: "Robin" },
+      { name_id: "lynx", name: "Lynx" },
+    ],
+    primaryCharacter: { name_id: "jade", name: "Jade" },
+  },
+  {
+    characters: [
+      { name_id: "jade", name: "Jade" },
+      { name_id: "himeko", name: "Himeko" },
+      { name_id: "robin", name: "Robin" },
+      { name_id: "huohuo", name: "Huohuo" },
+    ],
+    primaryCharacter: { name_id: "jade", name: "Jade" },
+  },
+  {
+    characters: [
+      { name_id: "jade", name: "Jade" },
+      { name_id: "herta", name: "Herta" },
+      { name_id: "robin", name: "Robin" },
+      { name_id: "aventurine", name: "Aventurine" },
+    ],
+    primaryCharacter: { name_id: "jade", name: "Jade" },
+  },
+  {
+    characters: [
+      { name_id: "jade", name: "Jade" },
+      { name_id: "himeko", name: "Himeko" },
+      { name_id: "robin", name: "Robin" },
+      { name_id: "aventurine", name: "Aventurine" },
+    ],
+    primaryCharacter: { name_id: "jade", name: "Jade" },
+  },
+  {
+    characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: { name_id: "firefly", name: "Firefly" },
+  },
+  {
+    characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+      { name_id: "aventurine", name: "Aventurine" },
+    ],
+    primaryCharacter: { name_id: "firefly", name: "Firefly" },
+  },
+  {
+    characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+      { name_id: "huohuo", name: "Huohuo" },
+    ],
+    primaryCharacter: { name_id: "firefly", name: "Firefly" },
+  },
+  {
+    characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "boothill", name: "Boothill" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: { name_id: "firefly", name: "Firefly" },
+  },
+  {
+    characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "pela", name: "Pela" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: { name_id: "firefly", name: "Firefly" },
+  },
+  {
+    characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "bronya", name: "Bronya" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+    ],
+    primaryCharacter: { name_id: "firefly", name: "Firefly" },
+  },
   {
     characters: [
       { name_id: "dr-ratio", name: "Dr. Ratio" },
@@ -71,6 +201,36 @@ const TEAMS: ITeamData[] = [
   },
   {
     characters: [
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: {
+      name_id: "trailblazer-imaginary",
+      name: "Trailblazer Imaginary",
+    },
+  },
+  {
+    characters: [
+      { name_id: "boothill", name: "Boothill" },
+      { name_id: "bronya", name: "Bronya" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: { name_id: "boothill", name: "Boothill" },
+  },
+  {
+    characters: [
+      { name_id: "boothill", name: "Boothill" },
+      { name_id: "sparkle", name: "Sparkle" },
+      { name_id: "ruan-mei", name: "Ruan Mei" },
+      { name_id: "gallagher", name: "Gallagher" },
+    ],
+    primaryCharacter: { name_id: "boothill", name: "Boothill" },
+  },
+  {
+    characters: [
       { name_id: "acheron", name: "Acheron" },
       { name_id: "kafka", name: "Kafka" },
       { name_id: "black-swan", name: "Black Swan" },
@@ -104,51 +264,6 @@ const TEAMS: ITeamData[] = [
       { name_id: "gallagher", name: "Gallagher" },
     ],
     primaryCharacter: { name_id: "gallagher", name: "Gallagher" },
-  },
-  {
-    characters: [
-      { name_id: "acheron", name: "Acheron" },
-      { name_id: "sparkle", name: "Sparkle" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
-      { name_id: "aventurine", name: "Aventurine" },
-    ],
-    primaryCharacter: { name_id: "aventurine", name: "Aventurine" },
-  },
-  {
-    characters: [
-      { name_id: "acheron", name: "Acheron" },
-      { name_id: "pela", name: "Pela" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
-      { name_id: "aventurine", name: "Aventurine" },
-    ],
-    primaryCharacter: { name_id: "aventurine", name: "Aventurine" },
-  },
-  {
-    characters: [
-      { name_id: "acheron", name: "Acheron" },
-      { name_id: "kafka", name: "Kafka" },
-      { name_id: "black-swan", name: "Black Swan" },
-      { name_id: "aventurine", name: "Aventurine" },
-    ],
-    primaryCharacter: { name_id: "aventurine", name: "Aventurine" },
-  },
-  {
-    characters: [
-      { name_id: "dr-ratio", name: "Dr. Ratio" },
-      { name_id: "topaz-and-numby", name: "Topaz and Numby" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "aventurine", name: "Aventurine" },
-    ],
-    primaryCharacter: { name_id: "aventurine", name: "Aventurine" },
-  },
-  {
-    characters: [
-      { name_id: "herta", name: "Herta" },
-      { name_id: "himeko", name: "Himeko" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "aventurine", name: "Aventurine" },
-    ],
-    primaryCharacter: { name_id: "aventurine", name: "Aventurine" },
   },
   {
     characters: [
@@ -308,10 +423,10 @@ const TEAMS: ITeamData[] = [
   },
   {
     characters: [
+      { name_id: "kafka", name: "Kafka" },
       { name_id: "black-swan", name: "Black Swan" },
-      { name_id: "luka", name: "Luka" },
-      { name_id: "pela", name: "Pela" },
-      { name_id: "luocha", name: "Luocha" },
+      { name_id: "jiaoqiu", name: "Jiaoqiu" },
+      { name_id: "huohuo", name: "Huohuo" },
     ],
     primaryCharacter: { name_id: "black-swan", name: "Black Swan" },
   },
@@ -329,15 +444,6 @@ const TEAMS: ITeamData[] = [
       { name_id: "kafka", name: "Kafka" },
       { name_id: "black-swan", name: "Black Swan" },
       { name_id: "tingyun", name: "Tingyun" },
-      { name_id: "huohuo", name: "Huohuo" },
-    ],
-    primaryCharacter: { name_id: "black-swan", name: "Black Swan" },
-  },
-  {
-    characters: [
-      { name_id: "kafka", name: "Kafka" },
-      { name_id: "black-swan", name: "Black Swan" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
       { name_id: "huohuo", name: "Huohuo" },
     ],
     primaryCharacter: { name_id: "black-swan", name: "Black Swan" },
@@ -398,55 +504,19 @@ const TEAMS: ITeamData[] = [
   },
   {
     characters: [
-      { name_id: "dr-ratio", name: "Dr. Ratio" },
-      { name_id: "topaz-and-numby", name: "Topaz and Numby" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "huohuo", name: "Huohuo" },
-    ],
-    primaryCharacter: { name_id: "dr-ratio", name: "Dr. Ratio" },
-  },
-  {
-    characters: [
-      { name_id: "dr-ratio", name: "Dr. Ratio" },
-      { name_id: "sparkle", name: "Sparkle" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
-      { name_id: "gallagher", name: "Gallagher" },
-    ],
-    primaryCharacter: { name_id: "dr-ratio", name: "Dr. Ratio" },
-  },
-  {
-    characters: [
-      { name_id: "dr-ratio", name: "Dr. Ratio" },
-      { name_id: "pela", name: "Pela" },
-      { name_id: "tingyun", name: "Tingyun" },
-      { name_id: "gallagher", name: "Gallagher" },
-    ],
-    primaryCharacter: { name_id: "dr-ratio", name: "Dr. Ratio" },
-  },
-  {
-    characters: [
-      { name_id: "dr-ratio", name: "Dr. Ratio" },
-      { name_id: "topaz-and-numby", name: "Topaz and Numby" },
+      { name_id: "firefly", name: "Firefly" },
+      { name_id: "firefly", name: "Firefly" },
       { name_id: "ruan-mei", name: "Ruan Mei" },
       { name_id: "gallagher", name: "Gallagher" },
-    ],
-    primaryCharacter: { name_id: "dr-ratio", name: "Dr. Ratio" },
-  },
-  {
-    characters: [
-      { name_id: "argenti", name: "Argenti" },
-      { name_id: "tingyun", name: "Tingyun" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "huohuo", name: "Huohuo" },
     ],
     primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
   },
   {
     characters: [
-      { name_id: "jing-yuan", name: "Jing Yuan" },
-      { name_id: "bronya", name: "Bronya" },
+      { name_id: "kafka", name: "Kafka" },
+      { name_id: "black-swan", name: "Black Swan" },
       { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "fu-xuan", name: "Fu Xuan" },
+      { name_id: "huohuo", name: "Huohuo" },
     ],
     primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
   },
@@ -455,46 +525,25 @@ const TEAMS: ITeamData[] = [
       { name_id: "jingliu", name: "Jingliu" },
       { name_id: "blade", name: "Blade" },
       { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "luocha", name: "Luocha" },
+      { name_id: "huohuo", name: "Huohuo" },
     ],
     primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
   },
   {
     characters: [
-      { name_id: "kafka", name: "Kafka" },
-      { name_id: "guinaifen", name: "Guinaifen" },
+      { name_id: "dr-ratio", name: "Dr. Ratio" },
+      { name_id: "topaz-and-numby", name: "Topaz and Numby" },
       { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "luocha", name: "Luocha" },
+      { name_id: "aventurine", name: "Aventurine" },
     ],
     primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
   },
   {
     characters: [
-      { name_id: "seele", name: "Seele" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
+      { name_id: "boothill", name: "Boothill" },
+      { name_id: "boothill", name: "Boothill" },
       { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "fu-xuan", name: "Fu Xuan" },
-    ],
-    primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
-  },
-  {
-    characters: [
-      { name_id: "sampo", name: "Sampo" },
-      { name_id: "luka", name: "Luka" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "natasha", name: "Natasha" },
-    ],
-    primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
-  },
-  {
-    characters: [
-      {
-        name_id: "dan-heng-imbibitor-lunae",
-        name: "Dan Heng • Imbibitor Lunae",
-      },
-      { name_id: "yukong", name: "Yukong" },
-      { name_id: "ruan-mei", name: "Ruan Mei" },
-      { name_id: "luocha", name: "Luocha" },
+      { name_id: "gallagher", name: "Gallagher" },
     ],
     primaryCharacter: { name_id: "ruan-mei", name: "Ruan Mei" },
   },
@@ -697,10 +746,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "robin", name: "Robin" },
       { name_id: "aventurine", name: "Aventurine" },
     ],
-    primaryCharacter: {
-      name_id: "topaz-and-numby",
-      name: "Topaz and Numby",
-    },
+    primaryCharacter: { name_id: "topaz-and-numby", name: "Topaz and Numby" },
   },
   {
     characters: [
@@ -709,10 +755,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "robin", name: "Robin" },
       { name_id: "aventurine", name: "Aventurine" },
     ],
-    primaryCharacter: {
-      name_id: "topaz-and-numby",
-      name: "Topaz and Numby",
-    },
+    primaryCharacter: { name_id: "topaz-and-numby", name: "Topaz and Numby" },
   },
   {
     characters: [
@@ -721,10 +764,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "ruan-mei", name: "Ruan Mei" },
       { name_id: "aventurine", name: "Aventurine" },
     ],
-    primaryCharacter: {
-      name_id: "topaz-and-numby",
-      name: "Topaz and Numby",
-    },
+    primaryCharacter: { name_id: "topaz-and-numby", name: "Topaz and Numby" },
   },
   {
     characters: [
@@ -733,10 +773,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "ruan-mei", name: "Ruan Mei" },
       { name_id: "gallagher", name: "Gallagher" },
     ],
-    primaryCharacter: {
-      name_id: "topaz-and-numby",
-      name: "Topaz and Numby",
-    },
+    primaryCharacter: { name_id: "topaz-and-numby", name: "Topaz and Numby" },
   },
   {
     characters: [
@@ -838,25 +875,7 @@ const TEAMS: ITeamData[] = [
     characters: [
       { name_id: "seele", name: "Seele" },
       { name_id: "silver-wolf", name: "Silver Wolf" },
-      { name_id: "lynx", name: "Lynx" },
-      { name_id: "fu-xuan", name: "Fu Xuan" },
-    ],
-    primaryCharacter: { name_id: "fu-xuan", name: "Fu Xuan" },
-  },
-  {
-    characters: [
-      { name_id: "seele", name: "Seele" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
       { name_id: "bronya", name: "Bronya" },
-      { name_id: "fu-xuan", name: "Fu Xuan" },
-    ],
-    primaryCharacter: { name_id: "fu-xuan", name: "Fu Xuan" },
-  },
-  {
-    characters: [
-      { name_id: "qingque", name: "Qingque" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
-      { name_id: "lynx", name: "Lynx" },
       { name_id: "fu-xuan", name: "Fu Xuan" },
     ],
     primaryCharacter: { name_id: "fu-xuan", name: "Fu Xuan" },
@@ -877,15 +896,6 @@ const TEAMS: ITeamData[] = [
     characters: [
       { name_id: "kafka", name: "Kafka" },
       { name_id: "luka", name: "Luka" },
-      { name_id: "asta", name: "Asta" },
-      { name_id: "fu-xuan", name: "Fu Xuan" },
-    ],
-    primaryCharacter: { name_id: "fu-xuan", name: "Fu Xuan" },
-  },
-  {
-    characters: [
-      { name_id: "dan-heng", name: "Dan Heng" },
-      { name_id: "serval", name: "Serval" },
       { name_id: "asta", name: "Asta" },
       { name_id: "fu-xuan", name: "Fu Xuan" },
     ],
@@ -1125,6 +1135,15 @@ const TEAMS: ITeamData[] = [
       { name_id: "fu-xuan", name: "Fu Xuan" },
       { name_id: "luocha", name: "Luocha" },
       { name_id: "bronya", name: "Bronya" },
+    ],
+    primaryCharacter: { name_id: "blade", name: "Blade" },
+  },
+  {
+    characters: [
+      { name_id: "blade", name: "Blade" },
+      { name_id: "jade", name: "Jade" },
+      { name_id: "robin", name: "Robin" },
+      { name_id: "fu-xuan", name: "Fu Xuan" },
     ],
     primaryCharacter: { name_id: "blade", name: "Blade" },
   },
@@ -1402,7 +1421,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "asta", name: "Asta" },
       { name_id: "march-7th", name: "March 7th" },
     ],
-    primaryCharacter: { name_id: "march-7th", name: "March 7th" },
+    primaryCharacter: { name_id: "march7th", name: "March 7th" },
   },
   {
     characters: [
@@ -1411,7 +1430,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "bronya", name: "Bronya" },
       { name_id: "march-7th", name: "March 7th" },
     ],
-    primaryCharacter: { name_id: "march-7th", name: "March 7th" },
+    primaryCharacter: { name_id: "march7th", name: "March 7th" },
   },
   {
     characters: [
@@ -1420,7 +1439,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "asta", name: "Asta" },
       { name_id: "march-7th", name: "March 7th" },
     ],
-    primaryCharacter: { name_id: "march-7th", name: "March 7th" },
+    primaryCharacter: { name_id: "march7th", name: "March 7th" },
   },
   {
     characters: [
@@ -1429,7 +1448,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "natasha", name: "Natasha" },
       { name_id: "march-7th", name: "March 7th" },
     ],
-    primaryCharacter: { name_id: "march-7th", name: "March 7th" },
+    primaryCharacter: { name_id: "march7th", name: "March 7th" },
   },
   {
     characters: [
@@ -1438,7 +1457,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "bailu", name: "Bailu" },
       { name_id: "march-7th", name: "March 7th" },
     ],
-    primaryCharacter: { name_id: "march-7th", name: "March 7th" },
+    primaryCharacter: { name_id: "march7th", name: "March 7th" },
   },
   {
     characters: [
@@ -1632,9 +1651,9 @@ const TEAMS: ITeamData[] = [
   {
     characters: [
       { name_id: "kafka", name: "Kafka" },
-      { name_id: "luka", name: "Luka" },
-      { name_id: "silver-wolf", name: "Silver Wolf" },
-      { name_id: "bailu", name: "Bailu" },
+      { name_id: "black-swan", name: "Black Swan" },
+      { name_id: "jiaoqiu", name: "Jiaoqiu" },
+      { name_id: "huohuo", name: "Huohuo" },
     ],
     primaryCharacter: { name_id: "kafka", name: "Kafka" },
   },
@@ -1933,7 +1952,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "tingyun", name: "Tingyun" },
       { name_id: "huohuo", name: "Huohuo" },
     ],
-    primaryCharacter: { name_id: "jing-yuan", name: "Jing Yuan" },
+    primaryCharacter: { name_id: "jingyuan", name: "Jing Yuan" },
   },
   {
     characters: [
@@ -1942,7 +1961,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "ruan-mei", name: "Ruan Mei" },
       { name_id: "fu-xuan", name: "Fu Xuan" },
     ],
-    primaryCharacter: { name_id: "jing-yuan", name: "Jing Yuan" },
+    primaryCharacter: { name_id: "jingyuan", name: "Jing Yuan" },
   },
   {
     characters: [
@@ -1951,7 +1970,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "tingyun", name: "Tingyun" },
       { name_id: "natasha", name: "Natasha" },
     ],
-    primaryCharacter: { name_id: "jing-yuan", name: "Jing Yuan" },
+    primaryCharacter: { name_id: "jingyuan", name: "Jing Yuan" },
   },
   {
     characters: [
@@ -1960,7 +1979,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "asta", name: "Asta" },
       { name_id: "natasha", name: "Natasha" },
     ],
-    primaryCharacter: { name_id: "jing-yuan", name: "Jing Yuan" },
+    primaryCharacter: { name_id: "jingyuan", name: "Jing Yuan" },
   },
   {
     characters: [
@@ -1969,7 +1988,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "tingyun", name: "Tingyun" },
       { name_id: "huohuo", name: "Huohuo" },
     ],
-    primaryCharacter: { name_id: "dan-heng", name: "Dan Heng" },
+    primaryCharacter: { name_id: "danheng", name: "Dan Heng" },
   },
   {
     characters: [
@@ -1978,7 +1997,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "tingyun", name: "Tingyun" },
       { name_id: "huohuo", name: "Huohuo" },
     ],
-    primaryCharacter: { name_id: "dan-heng", name: "Dan Heng" },
+    primaryCharacter: { name_id: "danheng", name: "Dan Heng" },
   },
   {
     characters: [
@@ -1987,7 +2006,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "silver-wolf", name: "Silver Wolf" },
       { name_id: "huohuo", name: "Huohuo" },
     ],
-    primaryCharacter: { name_id: "dan-heng", name: "Dan Heng" },
+    primaryCharacter: { name_id: "danheng", name: "Dan Heng" },
   },
   {
     characters: [
@@ -1996,7 +2015,7 @@ const TEAMS: ITeamData[] = [
       { name_id: "tingyun", name: "Tingyun" },
       { name_id: "gallagher", name: "Gallagher" },
     ],
-    primaryCharacter: { name_id: "dan-heng", name: "Dan Heng" },
+    primaryCharacter: { name_id: "danheng", name: "Dan Heng" },
   },
   {
     characters: [
@@ -2125,5 +2144,3 @@ const TEAMS: ITeamData[] = [
     primaryCharacter: { name_id: "bronya", name: "Bronya" },
   },
 ];
-
-export default TEAMS;

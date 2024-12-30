@@ -1,9 +1,6 @@
-export interface ICharacterData {
-  name: string;
-  name_id: string;
-}
+import type { ICharacterData } from "../types";
 
-const CHARACTERS: ICharacterData[] = [
+export const CHARACTERS: ICharacterData[] = [
   //{ name_id: "trailblazer-imaginary", name: "Trailblazer Imaginary" },
   //{ name_id: "boothill", name: "Boothill" },
   { name_id: "robin", name: "Robin" },
@@ -59,5 +56,3 @@ const CHARACTERS: ICharacterData[] = [
   { name_id: "asta", name: "Asta" },
   { name_id: "bronya", name: "Bronya" },
 ];
-
-export default CHARACTERS;
