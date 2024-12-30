@@ -1,7 +1,4 @@
-import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import { FaTimes } from "react-icons/fa";
-
+import { useEffect, useMemo, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import {
   Flex,
@@ -11,50 +8,63 @@ import {
   Image,
   Box,
   Grid,
-  FormControl,
-  Input,
-  Tooltip,
-  InputLeftElement,
-  InputGroup,
-  IconButton,
 } from "@chakra-ui/react";
-import Character from "./components/Character";
-import CHARACTERS from "./data/characters.data";
-import Team from "./components/Team";
-import TEAMS, { ITeamData } from "./data/teams.data";
 
-interface ICharacter {
+import { Character } from "./components/Character";
+import { Team } from "./components/Team";
+
+import { CHARACTERS } from "./data/characters.data";
+import { TEAMS } from "./data/teams.data";
+import { CharacterSearch } from "./components/CharacterSearch";
+import { filterTeamsByCharacters } from "./helpers/filterTeamsByCharacters";
+import { filterDuplicateTeams } from "./helpers/filterDuplicateTeams";
+import { ICharacterData } from "./types";
+
+interface ICharacter extends ICharacterData {
   selected: boolean;
   name: string;
   name_id: string;
 }
 
 function App() {
-  localStorage.setItem("chakra-ui-color-mode", "dark"); //set dark mode
+  // Set dark mode on mount
+  useEffect(() => {
+    localStorage.setItem("chakra-ui-color-mode", "dark");
+  }, []);
 
   const [characterFilter, setCharacterFilter] = useState("");
-
   const [characters, setCharacters] = useState<ICharacter[]>(
-    CHARACTERS.map((c) => {
-      return { name: c.name, name_id: c.name_id, selected: false };
-    })
+    CHARACTERS.map((c) => ({
+      name: c.name,
+      name_id: c.name_id,
+      selected: false,
+    }))
   );
 
-  function teamFilterFunction(team: ITeamData) {
-    let numMatchingChars = 0;
-
-    for (let teamChar of team.characters) {
-      for (let char of characters) {
-        if (char.selected) {
-          if (char.name_id === teamChar.name_id) {
-            numMatchingChars++;
-          }
-        }
-      }
+  const filteredCharacters = useMemo(() => {
+    if (!characterFilter?.length) {
+      return characters;
     }
 
-    return numMatchingChars === 4;
-  }
+    return characters.filter((c) =>
+      c.name.toLowerCase().includes(characterFilter.toLowerCase())
+    );
+  }, [characterFilter, characters]);
+
+  const selectedCharacters = useMemo(
+    () => characters.filter((char) => char.selected),
+    [characters]
+  );
+
+  const filteredTeams = useMemo(() => {
+    if (!selectedCharacters?.length) {
+      return [];
+    }
+
+    return filterDuplicateTeams(
+      filterTeamsByCharacters(TEAMS, selectedCharacters)
+    );
+  }, [selectedCharacters]);
 
   return (
     <>
@@ -74,27 +84,27 @@ function App() {
       </Box>
 
       <Flex
-        minH={"100vh"}
-        align={"center"}
-        justify={"center"}
+        minH="100vh"
+        align="center"
+        justify="center"
         bg={useColorModeValue("gray.50", "gray.800")}
       >
         <Stack
           spacing={4}
-          w={"full"}
-          maxW={"xl"}
+          w="full"
+          maxW="xl"
           bg={useColorModeValue("white", "gray.700")}
-          rounded={"xl"}
-          boxShadow={"lg"}
+          rounded="xl"
+          boxShadow="lg"
           p={6}
           my={12}
         >
           {/*---------------------------Character --------------------------------------*/}
 
           <Flex gap={5}>
-            <Box width={"50%"} py={"5px"} borderWidth="1px" borderRadius={"md"}>
-              <Flex alignItems="center" justify={"center"}>
-                <Text userSelect={"none"} mr={"5px"}>
+            <Box width="50%" py="5px" borderWidth="1px" borderRadius="md">
+              <Flex alignItems="center" justify="center">
+                <Text userSelect="none" mr="5px">
                   Available Characters
                 </Text>
                 <Image
@@ -106,45 +116,26 @@ function App() {
               </Flex>
             </Box>
 
-            <Flex gap={2} width={"50%"}>
-              <FormControl>
-                <InputGroup>
-                  <InputLeftElement pointerEvents="none">
-                    <FaSearch />
-                  </InputLeftElement>
-                  <Input
-                    onChange={(e) => {
-                      setCharacterFilter(e.target.value);
-                    }}
-                    autoComplete={"off"}
-                    type="search"
-                    placeholder=""
-                  />
-                </InputGroup>
-              </FormControl>
-
-              <Tooltip label="Clear selected characters">
-                <IconButton
-                  onClick={() => {
-                    setCharacters([
-                      ...characters.map((c) => {
-                        c.selected = false;
-                        return c;
-                      }),
-                    ]);
-                  }}
-                  aria-label="Clear"
-                  icon={<FaTimes />}
-                />
-              </Tooltip>
+            <Flex gap={2} width="50%">
+              <CharacterSearch
+                onChange={(value) => setCharacterFilter(value)}
+                onClear={() => {
+                  setCharacters([
+                    ...characters.map((c) => {
+                      c.selected = false;
+                      return c;
+                    }),
+                  ]);
+                }}
+              />
             </Flex>
           </Flex>
 
-          <Flex p={"5px"} borderWidth="1px" borderRadius={"md"} w={"100%"}>
+          <Flex p="5px" borderWidth="1px" borderRadius="md" w="100%">
             <Grid
-              overflowX={"hidden"}
-              overflowY={"auto"}
-              h={"400px"}
+              overflowX="hidden"
+              overflowY="auto"
+              h="400px"
               sx={{
                 "::-webkit-scrollbar": {
                   display: "none",
@@ -154,43 +145,35 @@ function App() {
               templateRows="repeat(4, 1fr)"
               gap={1}
             >
-              {characters
-                .filter((c) => {
-                  if (characterFilter.length === 0) return true;
-
-                  return c.name
-                    .toLowerCase()
-                    .includes(characterFilter.toLowerCase());
-                })
-                .map((char, i) => (
-                  <Character
-                    onClick={() => {
-                      setCharacters([
-                        ...characters.map((c) => {
-                          if (c.name_id == char.name_id) {
-                            c.selected = !c.selected;
-                            return c;
-                          } else {
-                            return c;
-                          }
-                        }),
-                      ]);
-                    }}
-                    key={i}
-                    name={char.name}
-                    name_id={char.name_id}
-                    selected={char.selected}
-                  />
-                ))}
+              {filteredCharacters.map((char, i) => (
+                <Character
+                  onClick={() => {
+                    setCharacters([
+                      ...characters.map((c) => {
+                        if (c.name_id == char.name_id) {
+                          c.selected = !c.selected;
+                          return c;
+                        } else {
+                          return c;
+                        }
+                      }),
+                    ]);
+                  }}
+                  key={i}
+                  name={char.name}
+                  name_id={char.name_id}
+                  selected={char.selected}
+                />
+              ))}
             </Grid>
           </Flex>
 
           {/*---------------------------Teams --------------------------------------*/}
 
           <Flex gap={5}>
-            <Box py={"5px"} borderWidth="1px" borderRadius={"md"} w={"100%"}>
-              <Flex alignItems="center" justify={"center"}>
-                <Text userSelect={"none"} mr={"5px"}>
+            <Box py="5px" borderWidth="1px" borderRadius="md" w="100%">
+              <Flex alignItems="center" justify="center">
+                <Text userSelect="none" mr="5px">
                   Teams
                 </Text>
               </Flex>
@@ -199,19 +182,19 @@ function App() {
 
           <Flex
             alignItems="center"
-            justify={"center"}
-            p={"5px"}
+            justify="center"
+            p="5px"
             borderWidth="1px"
-            borderRadius={"md"}
-            w={"100%"}
+            borderRadius="md"
+            w="100%"
           >
-            {TEAMS.filter(teamFilterFunction).length > 0 ? (
+            {filteredTeams.length > 0 ? (
               <Grid
                 templateColumns="repeat(1, 1fr)"
                 templateRows="repeat(1, 1fr)"
                 gap={1}
               >
-                {TEAMS.filter(teamFilterFunction).map((t, i) => (
+                {filteredTeams.map((t, i) => (
                   <Team
                     key={i}
                     characters={t.characters}
@@ -220,7 +203,7 @@ function App() {
                 ))}
               </Grid>
             ) : (
-              <Text color={"gray.500"} userSelect={"none"} mr={"5px"}>
+              <Text color="gray.500" userSelect="none" mr="5px">
                 No matching teams for selected characters
               </Text>
             )}
