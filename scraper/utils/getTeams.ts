@@ -31,24 +31,27 @@ function getCharactersInTeamDiv(
   const charNameTags = element.querySelectorAll(`p span em strong,b`);
   const charactersData: Set<CharacterData> = new Set();
 
-  for (let i = 0; i < charNameTags.length; i++) {
-    const tagText = charNameTags[i].textContent;
+  for (const charNameTag of charNameTags) {
+    const tagText = charNameTag.textContent;
+    if (!tagText) {
+      continue;
+    }
 
     if (
-      tagText?.includes("Healer") ||
-      tagText?.includes("DPS") ||
-      tagText?.includes("Support") ||
-      tagText?.includes("Tank") ||
-      tagText?.includes("Shield") ||
-      tagText?.includes("Break Damage Dealer")
+      tagText.includes("Healer") ||
+      tagText.includes("DPS") ||
+      tagText.includes("Support") ||
+      tagText.includes("Tank") ||
+      tagText.includes("Shield") ||
+      tagText.includes("Break Damage Dealer")
     ) {
       continue;
     }
 
     const charToAdd = chars.find(
       (chr) =>
-        charNameTags[i].textContent?.includes(chr.name) ||
-        charNameTags[i].textContent?.replace(/[\(\)]/, '').includes(chr.name) // Handle trailbrazer case
+        tagText.includes(chr.name) ||
+        tagText.replace(/[\(\)]/, "").includes(chr.name) // Handle trailbrazer case
     );
     if (charToAdd) {
       charactersData.add(charToAdd);
@@ -79,7 +82,7 @@ function generateTeamsDataFromDom(
     } else {
       console.log(
         "\x1b[31m" +
-          `Error adding ${mainChar.name} team, length of chars is not 4`
+          `Error adding ${mainChar.name} team, length of chars is not 4: ${teamChars.map((el) => el.name)}`
       );
     }
   }
