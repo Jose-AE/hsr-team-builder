@@ -28,31 +28,40 @@ function getCharactersInTeamDiv(
   element: Element,
   chars: CharacterData[]
 ): CharacterData[] {
-  const charNameTags = element.querySelectorAll(`p span em strong`);
-  const charactersData: CharacterData[] = [];
+  const charNameTags1 = element.querySelectorAll(`p span em strong,b`);
+  const charNameTags2 = element.querySelectorAll(`p em strong,b`);
+  const charNameTags = [...charNameTags1, ...charNameTags2];
 
-  for (let i = 0; i < charNameTags.length; i++) {
-    const tagText = charNameTags[i].textContent;
+  const charactersData: Set<CharacterData> = new Set();
+
+  for (const charNameTag of charNameTags) {
+    const tagText = charNameTag.textContent;
+    if (!tagText) {
+      continue;
+    }
 
     if (
-      tagText?.includes("Healer") ||
-      tagText?.includes("DPS") ||
-      tagText?.includes("Support") ||
-      tagText?.includes("Tank") ||
-      tagText?.includes("Shield")
+      tagText.includes("Healer") ||
+      tagText.includes("DPS") ||
+      tagText.includes("Support") ||
+      tagText.includes("Tank") ||
+      tagText.includes("Shield") ||
+      tagText.includes("Break Damage Dealer")
     ) {
       continue;
     }
 
-    const charToAdd = chars.find((chr) =>
-      charNameTags[i].textContent?.includes(chr.name)
+    const charToAdd = chars.find(
+      (chr) =>
+        tagText.includes(chr.name) ||
+        tagText.replace(/[\(\)]/, "").includes(chr.name) // Handle trailbrazer case
     );
     if (charToAdd) {
-      charactersData.push(charToAdd);
+      charactersData.add(charToAdd);
     }
   }
 
-  return charactersData;
+  return Array.from(charactersData);
 }
 
 function generateTeamsDataFromDom(
@@ -76,7 +85,7 @@ function generateTeamsDataFromDom(
     } else {
       console.log(
         "\x1b[31m" +
-          `Error adding ${mainChar.name} team, length of chars is not 4`
+          `Error adding ${mainChar.name} team, length of chars is not 4: ${teamChars.map((el) => el.name)}`
       );
     }
   }
