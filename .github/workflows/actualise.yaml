@@ -35,11 +35,11 @@ jobs:
           npm start --prefix scraper
 
           CHARACTERS=$(cat ./scraper/output/characters.json)
-          CHARACTERS_SCRIPT="import type { ICharacterData } from \"../types\"; export const CHARACTERS: ICharacterData[] = $CHARACTERS;"
+          CHARACTERS_SCRIPT="import type { ICharacterData } from \"../types\";\n\nexport const CHARACTERS: ICharacterData[] = $CHARACTERS;"
           echo $CHARACTERS_SCRIPT > ./app/src/data/characters.data.ts
           
           TEAMS=$(cat ./scraper/output/teams.json)
-          TEAMS_SCRIPT="import type { ITeamData } from \"../types\"; export const TEAMS: ITeamData[] = $TEAMS;"
+          TEAMS_SCRIPT="import type { ITeamData } from \"../types\";\n\nexport const TEAMS: ITeamData[] = $TEAMS;"
           echo $TEAMS_SCRIPT > ./app/src/data/teams.data.ts
       
           git add ./scraper/output
