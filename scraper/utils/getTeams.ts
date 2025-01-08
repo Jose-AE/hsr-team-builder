@@ -28,7 +28,7 @@ function getCharactersInTeamDiv(
   element: Element,
   chars: CharacterData[]
 ): CharacterData[] {
-  const charNameTags = element.querySelectorAll(`p span em strong`);
+  const charNameTags = element.querySelectorAll(`p span em strong,b`);
   const charactersData: Set<CharacterData> = new Set();
 
   for (let i = 0; i < charNameTags.length; i++) {
