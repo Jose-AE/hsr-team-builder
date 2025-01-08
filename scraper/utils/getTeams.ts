@@ -39,7 +39,8 @@ function getCharactersInTeamDiv(
       tagText?.includes("DPS") ||
       tagText?.includes("Support") ||
       tagText?.includes("Tank") ||
-      tagText?.includes("Shield")
+      tagText?.includes("Shield") || 
+      tagText?.includes("Break Damage Dealer")
     ) {
       continue;
     }
