@@ -1,10 +1,10 @@
 name: Actualise Data
 
-# runs every monday at 9 am
+# runs every 2 days at 9 am
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 9 * * 1"
+    - cron: "0 9 */2 * *"
 
 permissions:
   contents: write
@@ -30,25 +30,20 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
 
-      - name: Call scraper
-        working-directory: ./scraper
-        id: scraper
+      - name: Call scraper and update data
         run: |
-          npm start
+          npm start --prefix scraper
 
-          echo "CHARACTERS=$(cat ./output/characters.json)" >> $GITHUB_OUTPUT
-          echo "TEAMS=$(cat ./output/teams.json)" >> $GITHUB_OUTPUT
+          CHARACTERS=$(cat ./scraper/output/characters.json)
+          CHARACTERS_SCRIPT="import type { ICharacterData } from \"../types\"; export const CHARACTERS: ICharacterData[] = $CHARACTERS;"
+          echo $CHARACTERS_SCRIPT > ./app/src/data/characters.data.ts
+          
+          TEAMS=$(cat ./scraper/output/teams.json)
+          TEAMS_SCRIPT="import type { ITeamData } from \"../types\"; export const TEAMS: ITeamData[] = $TEAMS;"
+          echo $TEAMS_SCRIPT > ./app/src/data/teams.data.ts
       
-      - name: Replace data with actual
-        working-directory: ./app
-        run:  |
-          CHARACTERS_SCRIPT='import type { ICharacterData } from "../types"; export const CHARACTERS: ICharacterData[] = ${{ steps.scraper.outputs.CHARACTERS }};'
-          echo $CHARACTERS_SCRIPT > ./src/data/characters.data.ts
+          git add ./scraper/output
+          git add ./app/src/data
 
-          TEAMS_SCRIPT='import type { ITeamData } from "../types"; export const TEAMS: ITeamData[] = ${{ steps.scraper.outputs.TEAMS }};'
-          echo $TEAMS_SCRIPT > ./src/data/teams.data.ts
-
-          git add .
-          git commit -m "ci: Actualise data"
-          git push
+          git commit -m "ci: Actualise data" && git push || echo "No changes"
         
