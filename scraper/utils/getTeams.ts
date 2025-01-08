@@ -29,7 +29,7 @@ function getCharactersInTeamDiv(
   chars: CharacterData[]
 ): CharacterData[] {
   const charNameTags = element.querySelectorAll(`p span em strong`);
-  const charactersData: CharacterData[] = [];
+  const charactersData: Set<CharacterData> = new Set();
 
   for (let i = 0; i < charNameTags.length; i++) {
     const tagText = charNameTags[i].textContent;
@@ -39,21 +39,23 @@ function getCharactersInTeamDiv(
       tagText?.includes("DPS") ||
       tagText?.includes("Support") ||
       tagText?.includes("Tank") ||
-      tagText?.includes("Shield") || 
+      tagText?.includes("Shield") ||
       tagText?.includes("Break Damage Dealer")
     ) {
       continue;
     }
 
-    const charToAdd = chars.find((chr) =>
-      charNameTags[i].textContent?.includes(chr.name)
+    const charToAdd = chars.find(
+      (chr) =>
+        charNameTags[i].textContent?.includes(chr.name) ||
+        charNameTags[i].textContent?.replace(/[\(\)]/, '').includes(chr.name) // Handle trailbrazer case
     );
     if (charToAdd) {
-      charactersData.push(charToAdd);
+      charactersData.add(charToAdd);
     }
   }
 
-  return charactersData;
+  return Array.from(charactersData);
 }
 
 function generateTeamsDataFromDom(
