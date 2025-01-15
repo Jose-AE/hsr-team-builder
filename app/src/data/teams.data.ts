@@ -4,6 +4,126 @@ export const TEAMS: ITeamData[] = [
   {
     "characters": [
       {
+        "name_id": "jade",
+        "name": "Jade"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "the-herta",
+      "name": "The Herta"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "jade",
+        "name": "Jade"
+      },
+      {
+        "name_id": "gallagher",
+        "name": "Gallagher"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      },
+      {
+        "name_id": "sunday",
+        "name": "Sunday"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "the-herta",
+      "name": "The Herta"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "herta",
+        "name": "Herta"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "the-herta",
+      "name": "The Herta"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "himeko",
+        "name": "Himeko"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "the-herta",
+      "name": "The Herta"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "serval",
+        "name": "Serval"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "the-herta",
+      "name": "The Herta"
+    }
+  },
+  {
+    "characters": [
+      {
         "name_id": "jing-yuan",
         "name": "Jing Yuan"
       },
