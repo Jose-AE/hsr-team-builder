@@ -14,6 +14,10 @@ export const CHARACTERS: ICharacterData[] = [
     "name": "The Herta"
   },
   {
+    "name_id": "aglaea",
+    "name": "Aglaea"
+  },
+  {
     "name_id": "sunday",
     "name": "Sunday"
   },
