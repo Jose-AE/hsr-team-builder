@@ -3244,6 +3244,102 @@ export const TEAMS: ITeamData[] = [
   {
     "characters": [
       {
+        "name_id": "dr-ratio",
+        "name": "Dr. Ratio"
+      },
+      {
+        "name_id": "topaz-and-numby",
+        "name": "Topaz and Numby"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "topaz-and-numby",
+      "name": "Topaz and Numby"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "clara",
+        "name": "Clara"
+      },
+      {
+        "name_id": "topaz-and-numby",
+        "name": "Topaz and Numby"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "topaz-and-numby",
+      "name": "Topaz and Numby"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "dr-ratio",
+        "name": "Dr. Ratio"
+      },
+      {
+        "name_id": "topaz-and-numby",
+        "name": "Topaz and Numby"
+      },
+      {
+        "name_id": "ruan-mei",
+        "name": "Ruan Mei"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "topaz-and-numby",
+      "name": "Topaz and Numby"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "himeko",
+        "name": "Himeko"
+      },
+      {
+        "name_id": "topaz-and-numby",
+        "name": "Topaz and Numby"
+      },
+      {
+        "name_id": "ruan-mei",
+        "name": "Ruan Mei"
+      },
+      {
+        "name_id": "gallagher",
+        "name": "Gallagher"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "topaz-and-numby",
+      "name": "Topaz and Numby"
+    }
+  },
+  {
+    "characters": [
+      {
         "name_id": "seele",
         "name": "Seele"
       },
