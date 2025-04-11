@@ -1420,6 +1420,174 @@ export const TEAMS: ITeamData[] = [
   {
     "characters": [
       {
+        "name_id": "dr-ratio",
+        "name": "Dr. Ratio"
+      },
+      {
+        "name_id": "topaz-and-numby",
+        "name": "Topaz and Numby"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "kafka",
+        "name": "Kafka"
+      },
+      {
+        "name_id": "black-swan",
+        "name": "Black Swan"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "huohuo",
+        "name": "Huohuo"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "herta",
+        "name": "Herta"
+      },
+      {
+        "name_id": "himeko",
+        "name": "Himeko"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "jingliu",
+        "name": "Jingliu"
+      },
+      {
+        "name_id": "tingyun",
+        "name": "Tingyun"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "ruan-mei",
+        "name": "Ruan Mei"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "argenti",
+        "name": "Argenti"
+      },
+      {
+        "name_id": "tingyun",
+        "name": "Tingyun"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "huohuo",
+        "name": "Huohuo"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "acheron",
+        "name": "Acheron"
+      },
+      {
+        "name_id": "pela",
+        "name": "Pela"
+      },
+      {
+        "name_id": "silver-wolf",
+        "name": "Silver Wolf"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "clara",
+        "name": "Clara"
+      },
+      {
+        "name_id": "tingyun",
+        "name": "Tingyun"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "gallagher",
+        "name": "Gallagher"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "robin",
+      "name": "Robin"
+    }
+  },
+  {
+    "characters": [
+      {
         "name_id": "xue-yi",
         "name": "Xue Yi"
       },
