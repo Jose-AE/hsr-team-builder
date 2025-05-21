@@ -6,6 +6,10 @@ export const CHARACTERS: ICharacterData[] = [
     "name": "Cipher"
   },
   {
+    "name_id": "hyacine",
+    "name": "Hyacine"
+  },
+  {
     "name_id": "anaxa",
     "name": "Anaxa"
   },

@@ -2,6 +2,54 @@
   {
     "characters": [
       {
+        "name_id": "hyacine",
+        "name": "Hyacine"
+      },
+      {
+        "name_id": "castorice",
+        "name": "Castorice"
+      },
+      {
+        "name_id": "sunday",
+        "name": "Sunday"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "hyacine",
+      "name": "Hyacine"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "hyacine",
+        "name": "Hyacine"
+      },
+      {
+        "name_id": "castorice",
+        "name": "Castorice"
+      },
+      {
+        "name_id": "mydei",
+        "name": "Mydei"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "hyacine",
+      "name": "Hyacine"
+    }
+  },
+  {
+    "characters": [
+      {
         "name_id": "anaxa",
         "name": "Anaxa"
       },
