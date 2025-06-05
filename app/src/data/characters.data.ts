@@ -2,6 +2,10 @@ import type { ICharacterData } from "../types";
 
 export const CHARACTERS: ICharacterData[] = [
   {
+    "name_id": "phainon",
+    "name": "Phainon"
+  },
+  {
     "name_id": "cipher",
     "name": "Cipher"
   },
