@@ -12,6 +12,54 @@ export const TEAMS: ITeamData[] = [
         "name": "Castorice"
       },
       {
+        "name_id": "cipher",
+        "name": "Cipher"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "cipher",
+      "name": "Cipher"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "acheron",
+        "name": "Acheron"
+      },
+      {
+        "name_id": "jiaoqiu",
+        "name": "Jiaoqiu"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      },
+      {
+        "name_id": "cipher",
+        "name": "Cipher"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "cipher",
+      "name": "Cipher"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "hyacine",
+        "name": "Hyacine"
+      },
+      {
+        "name_id": "castorice",
+        "name": "Castorice"
+      },
+      {
         "name_id": "sunday",
         "name": "Sunday"
       },
@@ -215,6 +263,102 @@ export const TEAMS: ITeamData[] = [
     "primaryCharacter": {
       "name_id": "mydei",
       "name": "Mydei"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "herta",
+        "name": "Herta"
+      },
+      {
+        "name_id": "huohuo",
+        "name": "Huohuo"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "tribbie",
+      "name": "Tribbie"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "serval",
+        "name": "Serval"
+      },
+      {
+        "name_id": "gallagher",
+        "name": "Gallagher"
+      },
+      {
+        "name_id": "the-herta",
+        "name": "The Herta"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "tribbie",
+      "name": "Tribbie"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "feixiao",
+        "name": "Feixiao"
+      },
+      {
+        "name_id": "topaz-and-numby",
+        "name": "Topaz and Numby"
+      },
+      {
+        "name_id": "aventurine",
+        "name": "Aventurine"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "tribbie",
+      "name": "Tribbie"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "huohuo",
+        "name": "Huohuo"
+      },
+      {
+        "name_id": "aglaea",
+        "name": "Aglaea"
+      },
+      {
+        "name_id": "sunday",
+        "name": "Sunday"
+      },
+      {
+        "name_id": "tribbie",
+        "name": "Tribbie"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "tribbie",
+      "name": "Tribbie"
     }
   },
   {
