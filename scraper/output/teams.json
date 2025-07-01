@@ -2,6 +2,54 @@
   {
     "characters": [
       {
+        "name_id": "phainon",
+        "name": "Phainon"
+      },
+      {
+        "name_id": "sparkle",
+        "name": "Sparkle"
+      },
+      {
+        "name_id": "bronya",
+        "name": "Bronya"
+      },
+      {
+        "name_id": "sunday",
+        "name": "Sunday"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "phainon",
+      "name": "Phainon"
+    }
+  },
+  {
+    "characters": [
+      {
+        "name_id": "phainon",
+        "name": "Phainon"
+      },
+      {
+        "name_id": "robin",
+        "name": "Robin"
+      },
+      {
+        "name_id": "bronya",
+        "name": "Bronya"
+      },
+      {
+        "name_id": "sunday",
+        "name": "Sunday"
+      }
+    ],
+    "primaryCharacter": {
+      "name_id": "phainon",
+      "name": "Phainon"
+    }
+  },
+  {
+    "characters": [
+      {
         "name_id": "hyacine",
         "name": "Hyacine"
       },
