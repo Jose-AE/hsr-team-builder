@@ -15,6 +15,14 @@
   </p>
 </div>
 
+<!-- ARCHIVED NOTICE -->
+
+> **⚠️ This repository is archived and no longer maintained.**
+>
+> The cost of maintaining this project is not optimal due to the low number of users. Additionally, since the data is scraped, it is not reliable for long-term use.
+>
+> If you wish to continue using the project, you can run it locally by following the instructions below.
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -29,20 +37,43 @@
 
 <!-- GETTING STARTED -->
 
-### Installation
+### Running Locally
 
-1. Go to project dir
+To run the project locally:
+
+1. Clone the repository:
    ```sh
-   cd app
+   git clone https://github.com/Jose-AE/hsr-team-builder.git
+   cd hsr-team-builder/app
    ```
-2. Install NPM packages
+2. Install dependencies:
    ```sh
    npm install
    ```
-3. Run in dev mode
-   ```js
+3. Start the development server:
+   ```sh
    npm run dev
    ```
+4. Open your browser and go to `http://localhost:5173` (or the port shown in your terminal).
+
+### Scraping Data
+
+If you want to update the character and team data by scraping:
+
+1. Go to the `scraper` directory:
+   ```sh
+   cd ../scraper
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Run the scraper:
+   ```sh
+   npm start
+   ```
+   This will generate new `characters.json` and `teams.json` files in the `scraper/output` directory.  
+   You can then copy these files to the appropriate location in the app if you want to use the updated data.
 
 <!-- LICENSE -->
 
